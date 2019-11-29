@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Amount from './Amount';
+import Euro from './Euro';
+import Pounds from './Pounds';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    amount: 0,
+  };
+
+  increment = () => {
+    this.setState(prevState => ({ amount: prevState.amount + 1 }));
+  };
+
+  decrement = () => {
+    this.setState(prevState => ({ amount: prevState.amount - 1 }));
+  };
+
+  render() {
+    return (
+      <div>
+        <Amount amount={this.state.amount} increment={this.increment} decrement={this.decrement} />
+        <Euro amount={this.state.amount} />
+        <Pounds amount={this.state.amount} />
+      </div>
+    );
+  }
 }
 
 export default App;
