@@ -33,11 +33,19 @@ class Amount extends React.Component {
           name="amount"
           value={this.state.amount}
           onChange={this.handleChange}
-          placeholder="Enter amount"
+          placeholder="Enter US Dollars amount"
         />
-        <button onClick={this.increment}>Increment</button>
-        <button onClick={this.decrement}>Decrement</button>
-        <button onClick={this.handleReset}>Reset</button>
+        <div className="button-container">
+          <button className="btn btn-2" onClick={this.increment}>
+            Increment
+          </button>
+          <button className="btn btn-2" onClick={this.decrement}>
+            Decrement
+          </button>
+          <button className="btn btn-2" onClick={this.handleReset}>
+            Reset
+          </button>
+        </div>
         {this.props.children(this.state.amount)}
       </div>
     );

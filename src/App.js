@@ -2,13 +2,15 @@ import React from 'react';
 import Amount from './Amount';
 import Euro from './Euro';
 import Pounds from './Pounds';
+import Header from './Header';
 
 function App() {
   return (
-    <div>
+    <div className="container">
+      <Header />
       <Amount>
         {amount => (
-          <div>
+          <div className="results">
             <Euro amount={amount} />
             <Pounds amount={amount} />
           </div>
